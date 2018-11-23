@@ -1,4 +1,7 @@
-# frontend
+# ArchAngel Frontend
+
+[![Travis (.com) branch](https://img.shields.io/travis/com/JeremiahPinto/ArchAngel-frontend.svg?style=for-the-badge)](https://travis-ci.com/JeremiahPinto/ArchAngel-frontend)
+[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/JeremiahPinto/ArchAngel-frontend.svg?style=for-the-badge)](https://codeclimate.com/github/JeremiahPinto/ArchAngel-frontend/maintainability)
 
 ## Project setup
 ```

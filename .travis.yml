@@ -1,0 +1,9 @@
+dist: xenial
+sudo: true
+language: node_js
+nodejs:
+  - "11.2.0"
+cache:
+  yarn: true
+notifications:
+  email: false

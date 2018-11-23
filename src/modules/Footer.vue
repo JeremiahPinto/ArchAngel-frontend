@@ -1,6 +1,7 @@
 <template>
   <v-footer dark
             inset
+            app
             color="primary"
             height="auto"
   >

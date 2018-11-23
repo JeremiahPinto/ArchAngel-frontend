@@ -4,13 +4,14 @@ import 'vuetify/dist/vuetify.min.css';
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#ee44aa',
-    secondary: '#424242',
-    accent: '#82B1FF',
-    error: '#FF5252',
-    info: '#2196F3',
-    success: '#4CAF50',
-    warning: '#FFC107',
+    primary: '#6000FF',
+    secondary: '#211A1D',
+    accent: '#CAD5CA',
+    error: '#D11149',
+    info: '#1A8FE3',
+    success: '#48A9A6',
+    warning: '#E6C229',
+    magnolia: '#F8F0FB',
   },
   customProperties: true,
   iconfont: 'md',
