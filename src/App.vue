@@ -1,16 +1,17 @@
 <template>
   <v-app>
-    <Toolbar/>
-    <v-content>
+    <Toolbar @panel="sidepanel = !sidepanel" :drawer="sidepanel" :user="user"/>
+    <Sidebar @panel="sidepanel = false" :drawer="sidepanel" :user="user"/>
+    <v-content style="background-color: white;">
       <router-view/>
     </v-content>
-    <Footer/>
   </v-app>
 </template>
 
 <script>
 const Toolbar = import('./modules/Toolbar');
-const Footer = import('./modules/Footer');
+const Sidebar = import('./modules/Sidebar');
+// const Footer = import('./modules/Footer');
 
 export default {
   name: 'App',
@@ -20,16 +21,26 @@ export default {
       delay: 50,
       setTimeout: 3000,
     }),
-    Footer: () => ({
-      component: Footer,
+    Sidebar: () => ({
+      component: Sidebar,
       delay: 50,
       setTimeout: 3000,
     }),
+    // Footer: () => ({
+    //   component: Footer,
+    //   delay: 50,
+    //   setTimeout: 3000,
+    // }),
   },
   data() {
     return {
-      //
+      sidepanel: false,
     };
+  },
+  computed: {
+    user() {
+      return this.$store.state.auth.user;
+    },
   },
 };
 </script>
@@ -41,5 +52,8 @@ export default {
   src: local("Calibri Light"), url("assets/fonts/ateneSCiAnDIsTaTEwimeNSto.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+.v-messages__message {
+  height: 15px;
 }
 </style>
