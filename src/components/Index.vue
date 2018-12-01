@@ -1,18 +1,20 @@
 <template>
-  <v-container fluid fill-height style="background: linear-gradient(0deg, #6000ff, #8075ff);">
+  <v-container fluid fill-height class="background">
     <v-layout align-center justify-center fill-height>
       <v-card tile
               width="500"
               max-height="675"
               class="py-5 elevation-10"
       >
-        <v-img  contain
-                height="250"
+        <v-img  max-height=250
+                max-width=350
+                style="margin: 0 auto;"
                 :src="require('@/assets/ArchAngelLogo.png')"
         ></v-img>
         <v-card-text class="px-4">
           <v-form ref="form" v-model="valid" @keyup.native.enter="valid && login($event)">
             <v-text-field outline
+                          validate-on-blur
                           color="primary"
                           label="Email"
                           :disabled="loading"
@@ -72,7 +74,7 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 
-const ForgetPassModal = import('./Modals/ForgetPassModal');
+const ForgetPassModal = import('./modals/ForgetPassModal');
 
 export default {
   components: {
@@ -131,5 +133,8 @@ export default {
 <style scoped>
 .v-card {
   border-radius: 4%;
+}
+.background {
+  background: linear-gradient(0deg, rgba(96, 0, 255, 0.925), rgba(128, 117, 255, 0.7));
 }
 </style>

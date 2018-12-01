@@ -13,6 +13,8 @@ Vue.use(Vuetify, {
     warning: '#E6C229',
     magnolia: '#F8F0FB',
   },
-  customProperties: true,
+  options: {
+    customProperties: true,
+  },
   iconfont: 'md',
 });

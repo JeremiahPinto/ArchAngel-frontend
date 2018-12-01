@@ -51,37 +51,40 @@
           </v-list-tile-content>
         </v-list-tile>
 
-        <v-list-tile  v-for="subItem in item.items"
-                      v-if="subItem.icon === 'add'"
-                      :key="subItem.title"
-                      @click="subItem.checklistDialog = true"
-        >
-          <v-list-tile-action>
-            <v-icon> {{ subItem.icon }} </v-icon>
-          </v-list-tile-action>
-          
-          <v-list-tile-content>
-            <v-list-tile-title> {{ subItem.title }} </v-list-tile-title>
-          </v-list-tile-content>
+        <div v-if="subItem.icon === 'add'">
+          <v-list-tile  v-for="subItem in item.items"
+                        :key="subItem.title"
+                        @click="subItem.checklistDialog = true"
+          >
+            <v-list-tile-action>
+              <v-icon> {{ subItem.icon }} </v-icon>
+            </v-list-tile-action>
 
-          <NewChecklistModal @close="subItem.checklistDialog = false" :popup="subItem.checklistDialog"/>
-        </v-list-tile>
+            <v-list-tile-content>
+              <v-list-tile-title> {{ subItem.title }} </v-list-tile-title>
+            </v-list-tile-content>
 
-        <v-list-tile  v-for="subItem in item.items"
-                      v-if="subItem.icon !== 'add'"
-                      :key="subItem.title"
-                      :to="subItem.to"
-        >
-          <v-list-tile-action>
-            <v-icon> {{ subItem.icon }} </v-icon>
-          </v-list-tile-action>
-          
-          <v-list-tile-content>
-            <v-list-tile-title> {{ subItem.title }} </v-list-tile-title>
-          </v-list-tile-content>
+            <!-- <NewChecklistModal  @close="subItem.checklistDialog = false"
+                                :popup="subItem.checklistDialog"
+            /> -->
+          </v-list-tile>
+        </div>
 
-        </v-list-tile>
-  
+        <div v-else>
+          <v-list-tile  v-for="subItem in item.items"
+                        :key="subItem.title"
+                        :to="subItem.to"
+          >
+            <v-list-tile-action>
+              <v-icon> {{ subItem.icon }} </v-icon>
+            </v-list-tile-action>
+
+            <v-list-tile-content>
+              <v-list-tile-title> {{ subItem.title }} </v-list-tile-title>
+            </v-list-tile-content>
+
+          </v-list-tile>
+        </div>
       </v-list-group>
     </v-list>
 
@@ -116,17 +119,17 @@
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
 
-const NewChecklistModal = import('@/components/Forms/Checklist/Modals/NewChecklistModal');
+// const NewChecklistModal = import('@/components/Forms/Checklist/Modals/NewChecklistModal');
 
 export default {
   props: ['drawer', 'user'],
-  components: {
-    NewChecklistModal: () => ({
-      component: NewChecklistModal,
-      delay: 50,
-      setTimeout: 3000,
-    }),
-  },
+  // components: {
+  //   NewChecklistModal: () => ({
+  //     component: NewChecklistModal,
+  //     delay: 50,
+  //     setTimeout: 3000,
+  //   }),
+  // },
   data() {
     return {
       search: '',
@@ -346,7 +349,7 @@ export default {
 }
 .v-input >>> .v-input__icon--append i {
   color: #f9f3fc;
-} 
+}
 .foot-list {
   width: 100%;
 }
@@ -356,4 +359,3 @@ export default {
   border-right: 1px solid #d9d2dc;
 }
 </style>
-

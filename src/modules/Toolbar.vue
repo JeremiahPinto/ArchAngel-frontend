@@ -50,6 +50,6 @@ export default {
 
 <style scoped>
 .v-toolbar >>> .v-toolbar__content {
-  border-bottom: 1px solid #e8eaed;
+  border-bottom: 1px solid #e0e0e0;
 }
 </style>
